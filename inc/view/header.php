@@ -13,13 +13,15 @@
 			<div class="logo" id="logo">
 				<a href="index.php">My Meetic</a>
 			</div>
-			<div class="log" id="log" onclick="deco('log')" onmouseout="leavedeco('log')">
-				<p>Connect&eacute; : <?php echo $logged['pseudo']; ?></p>
-			</div>
+
 			<ul>
 				<li><a href="index.php?page=recherche">Recherche</a></li>
 				<li><a href="index.php?page=profil">Mon profil</a></li>
 			</ul>
+
+			<div class="log" id="log" onclick="deco('log')" onmouseout="leavedeco('log')">
+				<p>Connect&eacute; : <?php echo $logged['pseudo']; ?></p>
+			</div>
 		</nav>
 		<div class="container">
 		

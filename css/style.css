@@ -78,42 +78,36 @@ body
 	background-image:url(../img/fond.png);
 	font-family: arial, sans-serif;
 	color: #E5E4E2;
-	line-height: 20px;
+	font-size: 2em;
 }
 
 nav
 {
 	width: 100%;
 	background-color: black;
-	box-shadow: 0px 0px #262626;
-	height: 45px;
 	margin: 0px;
-	-moz-box-shadow: 0px 1px 10px 2px #ff96d3;
-	-webkit-box-shadow: 0px 1px 10px 2px #ff96d3;
-	-o-box-shadow: 0px 1px 10px 2px #ff96d3;
-	box-shadow: 0px 1px 10px 2px #ff96d3;
-	filter:progid:DXImageTransform.Microsoft.Shadow(color=#ff96d3, Direction=180, Strength=10);
+	padding: 20px 0;
 }
 
 .logo a
 {
 	display: inline-block;
 	text-decoration: none;
-	font-size: 30px;
 	font-family: "PTN";
 	float: left;
-	line-height: 45px;
-	padding: 0px 15px;
-	color: #ff96d3;
+	padding: 35px 15px;
+	color: #ff96d3;	
+	font-size: 4em;
 
 }
 
+
 nav ul
 {
-	line-height: 45px;
-	width: 40%;
 	text-align: center;
 	margin: auto;
+
+	font-size: 2em;
 }
 
 nav li
@@ -121,100 +115,70 @@ nav li
 	display: inline-block;
 	margin: auto;
 	font-family: "PTN";
+	margin: 15px 0px;
+	padding: 15px 25px;
+	background-color: #424242;
+	border-radius: 255px;
 
 }
 
 nav li a
 {
 	text-decoration: none;
-
-	padding: 0px 15px;
-	font-size: 20px;
 	color: #ff96d3;
 }
 
 nav li a:hover
 {
 	color: #E5E4E2;
-	font-size: 25px;
 	cursor: pointer;
 }
 
 #log p, #log a
 {
-	float: right;
-	display: inline;
-	line-height: 45px;
+	display: inline-block;
+	width: 100%;
+	padding: 20px 0;
 	color: #ff96d3;
-	padding: 0px 15px;
 	cursor: pointer;
 	text-decoration: none;
-	-webkit-border-top-left-radius: 255px;
-	-webkit-border-bottom-left-radius: 255px;
-	-moz-border-radius-topleft: 255px;
-	-moz-border-radius-bottomleft: 255px;
-	border-top-left-radius: 255px;
-	border-bottom-left-radius: 255px;
+	border-radius: 255px;
 	font-weight: bold;
 	background-color: #424242;
+	font-size: 1em;
+	text-align: center;
+	margin: 20px 0;
 }
 .container
 {
-	margin: 50px auto;
+	margin: 20px auto;
 	position: relative;
-	width: 960px;
+	width: 100%;
 }
 
 .container h1
 {
-	font-size: 30px;
 	font-family: "PTN";
-	height: 45px;
 	margin-bottom: 10px;
-	line-height: 45px;
 	color: #ff96d3;
 	padding: 5px 15px;
 	background-color: black;
-}
-
-.left_container
-{
-	display: inline-block;
-	vertical-align: top;
-	width: 620px;
-	margin:0px;
-	min-width: 243px;
-	padding: 10px 10px;
-	font-size: 15px;
-
-}
-
-.right_container
-{
-	display: inline-block;
-	vertical-align: top;
-	width: 290px;
-	margin:0px;
-	padding: 10px 10px;
-	font-size: 15px;
+	font-size: 2em;
 }
 
 
-.right_container button
+.link_profil button
 {
-	height: 45px;
 	width: 100%;
-	border-left: 4px solid #ff96d3;
-	border-bottom:none;
-	border-right:none;
-	border-top:none; 
+	font-size: 1em;
+	padding: 15px 0;
+	border: none;
 	color: #ff96d3;
-	background-color: black;
-	line-height: 45px;
+	background-color: #424242;
 	text-align: center;
-	margin-bottom: 5px;
-	font-size: 20px;
+	margin-bottom: 15px;
 	font-family: "PTN", arial;
+	border-radius: 255px;
 }
 
 #gestion
@@ -222,35 +186,33 @@ nav li a:hover
 	display: none;
 }
 
-.right_container button:hover
+.link_profil button:hover
 {
-	border-left: 4px solid #E5E4E2;
 	color: #E5E4E2;
 	background-color: #262626;
 	cursor: pointer;
 }
-.right_container button:active
-{
-	margin-left: -10px;
-}
 
 .info_profil
 {
-	height: 190px;
 	background-color: #262626;
 	border-bottom: 4px solid black;
 	padding: 10px;
 	margin-bottom: 20px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 95%;
 }
 
 .img_sex_profil
 {
 	display: inline-block;
+	margin: 0px;
 }
 
 .img_sex_profil img
 {
-	width: 150px;
+	width: 60%;
 	margin-top: 20px;
 	vertical-align: center;
 	padding-left: 5px;
@@ -262,12 +224,10 @@ nav li a:hover
 
 .legend_profil
 {
-	width:416px;
-	height: 150px;
 	display: inline-block;
 	padding-left: 5px;
 	vertical-align: top;
-	margin-top: 16px;
+	width: 70%;
 }
 
 .legend_profil table
@@ -277,8 +237,6 @@ nav li a:hover
 
 .legend_profil td, .legend_profil th
 {
-	height: 25px;
-	line-height: 25px;
 }
 
 .legend_profil td
@@ -299,7 +257,6 @@ form
 {
 	background-color: #262626;
 	padding: 5px 10px;
-	line-height: 50px;
 }
 
 form input
@@ -308,11 +265,11 @@ form input
 	background-color: #FBEFF2;
 	border-radius: 5px;
 	border: none;
-	padding: 5px;
-	float: right;
-	width: 200px;
+	padding: 5px 0;
+	font-size: 1em;
+	width: 100%;
 	margin: 15px 0;
-	box-shadow: 0px 0px 3px #ff96d3;
+	position: relative;
 }
 
 form input:hover
@@ -322,8 +279,6 @@ form input:hover
 
 form label
 {
-	height: 20px;
-	line-height: 20px;
 	margin: 20px 0; 
 	display: inline-block;
 }
@@ -342,8 +297,6 @@ legend
 {
 	background-color: #262626;
 	padding: 5px 10px;
-	height: 20px;
-	line-height: 20px;
 	border: 2px solid #424242;
 	color: #ff96d3;
 	font-weight: bold;
@@ -360,7 +313,6 @@ legend
 	background-color: #424242;
 	box-shadow: 0px 0px 3px #ff96d3;
 	color: white;
-	width: 210px;
 	cursor: pointer;
 	font-weight: bold;
 }
@@ -380,8 +332,9 @@ hr
 footer
 {
 	position:fixed;
-    left:0px;
-    bottom:0px;
+	display: none;
+	left:0px;
+	bottom:0px;
 	width: 100%;
 	background-color: black;
 	box-shadow: 0px 0px #262626;
@@ -401,17 +354,14 @@ footer
 	background-color: #A9F5A9;
 	margin:auto;
 	padding: 0px 10px;
-	height: 30px;
 	margin-bottom: 10px;
 	border-radius: 5px;
-	line-height: 30px;
 	cursor: pointer;
 
 }
 
 .success_alert p
 {
-	width: 300px;
 	margin: 0;
 	padding: 0;
 	display: inline-block;
@@ -425,7 +375,6 @@ footer
 	background-color: #F6CECE;
 	margin:auto;
 	padding: 0px 10px;
-	height: 30px;
 	margin-bottom: 10px;
 	border-radius: 5px;
 	line-height: 30px;
@@ -435,7 +384,6 @@ footer
 
 .error_alert p
 {
-	width: 100%;
 	display: inline-block;
 	margin: 0;
 	padding: 0;
@@ -459,7 +407,6 @@ footer
 
 .reright
 {
-	width: 310px;
 	display: inline-block;
 }
 
@@ -471,11 +418,14 @@ footer
 #recherche_avancee select
 {
 	width: 100%;
+	padding: 15px 0;
+	font-size: 1em;
 }
 
 #rencontre_pseudo input
 {
-	width: 242px;
+	width: 50%;
+	margin: 20px auto;
 }
 
 #rencontre_age button
@@ -500,7 +450,6 @@ footer
 
 .checkbox
 {
-	width: 15px;
 }
 
 #checkbox
@@ -526,8 +475,7 @@ footer
 {
 	cursor: pointer;
 	background-color: #424242;
-	height: 25px;
-	line-height: 25px;
+	padding: 15px 0;
 }
 
 #list_recherche tr:hover
@@ -541,7 +489,7 @@ footer
 	font-weight: bold;
 	text-align: center;
 	color: #ff96d3;
-	padding: 5px 10px;
+	padding: 25px 10px;
 	-webkit-border-top-left-radius: 10px;
 	-webkit-border-top-right-radius: 10px;
 	-moz-border-radius-topleft: 10px;
@@ -552,7 +500,7 @@ footer
 
 #list_recherche td
 {
-	padding: 5px 3px;
+	padding: 15px 3px;
 	border-bottom: 2px solid black;
 	text-align: center;
 }
@@ -569,7 +517,7 @@ footer
 
 #list_recherche img
 {
-	width: 25px;
+	width: 10%;
 	vertical-align: bottom;
 }
 
@@ -582,11 +530,11 @@ footer
 {
 	width: 100%;
 	background-color: #424242;
-	height: 35px;
-	line-height: 25px;
 	border: none;
 	margin-bottom: 10px;
 	color: #ff96d3;
+	font-size: 1em;
+	padding: 20px 0;
 	border-radius: 5px;
 	border: 2px solid black;
 	font-weight: bold;
@@ -619,7 +567,6 @@ footer
 {
 	border-radius: 5px;
 	padding: 35px;
-	width: 530px;
 	background-color: #222222;
 	color: white;
 	-moz-box-shadow: inset 0px 0px 50px 5px black;
@@ -643,24 +590,26 @@ footer
 {
 	text-align: left;
 	border: 1px solid black;
-	line-height: 20px;
 	background-color: #424242;
 	display: inline-block;
 	padding: 5px 10px;
 	border-radius: 5px;
+
+	margin: 20px
 }
 
 .repother
 {
 	text-align: right;
 	border: 1px solid black;
-	line-height: 20px;
 	background-color: #E5E4E2;
 	display: inline-block;
 	padding: 5px 10px;
 	border-radius: 5px;
 	color: #424242;
 	float: right;
+
+	margin: 20px
 }
 
 .msg_container a
@@ -693,7 +642,6 @@ footer
 {
 	border-radius: 5px;
 	padding: 15px;
-	width: 570px;
 	background-color: #222222;
 	color: white;
 	-moz-box-shadow: inset 0px 0px 50px 5px black;
@@ -718,13 +666,14 @@ footer
 .conv_rep textarea
 {
 	display: block;
-	width: 558px;
-	padding: 5px;
-	max-width: 558px;
-	min-height: 30px;
+	position: relative;
+	width: 100%;
+	max-width: 100%;
 	background-color: #424242;
 	border-radius: 5px;
 	color: #E5E4E2;
+	font-size: 1em;
+	min-height: 200px;
 }
 
 .conv_rep p
@@ -743,10 +692,12 @@ footer
 {
 	width: 100%;
 	background-color: #424242;
-	height: 35px;
-	line-height: 25px;
+	border: none;
 	margin-bottom: 10px;
 	color: #ff96d3;
+	font-size: 1em;
+	padding: 20px 0;
+	border-radius: 5px;
 	border: 2px solid black;
 	font-weight: bold;
 	-moz-box-shadow: inset 0px 0px 50px 5px black;
@@ -783,20 +734,19 @@ footer
 #add_conv textarea
 {
 	display: block;
-	width: 518px;
-	padding: 5px;
-	max-width: 518px;
-	min-height: 120px;
+	position: relative;
+	width: 100%;
+	max-width: 100%;
 	background-color: #424242;
 	border-radius: 5px;
 	color: #E5E4E2;
-	font-family: "PTN";
+	font-size: 1em;
+	min-height: 200px;
 }
 
 #titre_add
 {
 	margin: 10 0px;
-	width: 520px;
 	background-color: #424242;
 
 }
@@ -810,14 +760,11 @@ footer
 
 .who_conv
 {
-	font-size: 10px;
 	text-align: center;
 	margin-bottom: 5px;
 	width: 100%;
 	display: block;
-	padding: 0px;
-	height: 10px;
-	line-height: 10px;
+	padding: 10px 0;
 }
 
 .who_conv a
@@ -825,5 +772,4 @@ footer
 	text-decoration: none;
 	font-weight: bold;
 	color:#E5E4E2;
-	font-size: 12px;
 }

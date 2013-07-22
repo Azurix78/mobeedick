@@ -1,3 +1,25 @@
+@font-face
+{
+	font-family: "GIMENELL";
+    src: url('../font/GIMENELL.ttf');
+}
+
+@font-face
+{
+	font-family: "jd_digital";
+    src: url('../font/jd_digital.ttf');
+}
+
+
+body
+{
+	background-color:white;
+	background-image:url(../img/fond.png);
+	font-family: arial, sans-serif;
+	color: #262626;
+	font-size: 3em;
+}
+
 .btn
 {
 	display: inline-block;
@@ -5,8 +27,6 @@
 	padding: 4px 12px;
 	margin-bottom: 0;
 	*margin-left: .3em;
-	font-size: 14px;
-	line-height: 20px;
 	color: #333333;
 	text-align: center;
 	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
@@ -74,37 +94,10 @@
   outline-offset: -2px;
 }
 
-@font-face
-{
-	font-family: "GIMENELL";
-    src: url('../font/GIMENELL.ttf');
-}
-
-@font-face
-{
-	font-family: "jd_digital";
-    src: url('../font/jd_digital.ttf');
-}
-
-
-body
-{
-	background-color:white;
-	background-image:url(../img/fond.png);
-	font-family: arial, sans-serif;
-	color: #262626;
-}
-
-body a
-{
-	color:#B93B8F;
-	text-decoration: none;
-}
-
 
 .container
 {
-	width: 100%;
+	min-width: 400px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 5px;
@@ -120,6 +113,7 @@ body a
 label
 {
 	cursor: pointer;
+	display: block;
 }
 
 
@@ -127,38 +121,39 @@ h1
 {
 	font-family: "GIMENELL", arial;
 	text-align: center;
-	font-size: 50px;
+	font-size: 4em;
 	color:#B93B8F;
+	margin-top: 10px;
+	margin-bottom: 20px;
 }
 
-.right_container h1
-{
-	font-size: 22px;
-	font-family: "GIMENELL", arial;
-	color:#B93B8F;
-}
+
 
 .logs
 {
-	width: 80%;
+	width: 90%;
 	margin:auto;
 }
 
-#pseudo
+input
 {
-	display: block;
-}
-
-#mdp
-{
-	display: block;
-}
-
-table
-{
-	margin-bottom: 10px;
-	margin-top: 10px;
+	font-size: 1em;
+	margin-left: auto;
+	margin-right: auto;
 	width: 100%;
+	margin-bottom: 30px;
+}
+
+button
+{
+	font-size: 1em;
+}
+
+select
+{
+	width: 100%;
+	display: block;
+	font-size: 1em;
 }
 
 #inscription
@@ -166,21 +161,22 @@ table
 	display: none;
 }
 
+
 .success_alert
 {
-	width: 80%;
 	border: solid green 1px;
 	background-color: #A9F5A9;
 	margin:auto;
 	padding: 0px 10px;
 	margin-bottom: 10px;
 	border-radius: 5px;
-	line-height: 30px;
+	cursor: pointer;
 
 }
 
 .success_alert p
 {
+	width: 100%;
 	margin: 0;
 	padding: 0;
 	display: inline-block;
@@ -189,14 +185,13 @@ table
 
 .error_alert
 {
-	width: 80%;
 	border: solid red 1px;
 	background-color: #F6CECE;
 	margin:auto;
-	padding: 0px 10px;
+	padding: 10px 10px;
 	margin-bottom: 10px;
 	border-radius: 5px;
-	line-height: 30px;
+	cursor: pointer;
 
 }
 
