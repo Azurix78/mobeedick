@@ -11,11 +11,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="left_container">
 				<h1>My meetic</h1>
-			</div>
-			<img src="img/coeurrose.png" style="visibility:hidden;width:303px;margin-top:250px;" id="blink">
-			<div class="right_container">
 				<div class="logs">
 					<h1>Bienvenue</h1>
 					<p>My meetic est un site de rencontre pour la Web@cademie.</p>
@@ -73,8 +69,7 @@
 						<input class="btn" type="submit" name="login" value="OK">
 					</from>
 				</div>
-			</div>
 		</div>
-		<script type="text/javascript">blinkimg('blink');</script>
+	<script type="text/javascript">blinkimg('blink');</script>
 	</body>
 </html>
