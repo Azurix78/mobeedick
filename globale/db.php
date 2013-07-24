@@ -108,3 +108,25 @@ function getNAME($bdd, $id)
 		return false;
 	}
 }
+
+function getPHOTO($bdd, $id)
+{
+	$req = mysqli_query($bdd, "SELECT photo FROM users WHERE id_user = $id AND photo != '' ");
+	if ( $req != false )
+		{
+			if ( mysqli_num_rows($req) > 0 )
+			{
+				$donnee = mysqli_fetch_assoc($req);
+				return $donnee['photo'];
+			}
+			else
+			{
+				return 0;
+			}
+		}
+		else
+		{
+			return 0;
+		}
+
+}

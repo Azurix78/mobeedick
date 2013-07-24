@@ -95,4 +95,8 @@ function delCONV($bdd, $id_conv)
 	$req = mysqli_query($bdd, "DELETE FROM message WHERE id_conv = $id_conv " );
 }
 
+function changePHOTO($bdd, $str, $id)
+{
+	$req = mysqli_query($bdd, "UPDATE users SET photo = \"$str\" WHERE id_user = $id " );
+}
 ?>

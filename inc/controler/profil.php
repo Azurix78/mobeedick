@@ -3,6 +3,29 @@ require_once "inc/model/profil.php";
 
 $userinfo = getUserinfos($bdd, $_SESSION['id']);
 
+if (isset($_POST['btn_del_img']))
+{
+	if(is_file("img/" . $_SESSION['id'] . "-" .$_POST['img_del']))
+	{
+		$photo = explode(";", getPHOTO($bdd, $_SESSION['id']));
+		foreach ($photo as $key => $value)
+		{
+			if ( $value == $_POST['img_del'] )
+			{
+				unset($photo[$key]);
+				$photo = implode(";", $photo);
+				changePHOTO($bdd, $photo, $_SESSION['id']);
+				$success = "Image supprim&eacute;e.";
+				break;
+			}
+		}
+	}
+	else
+	{
+		$error = "Don't fuck with my_meetic !";
+	}
+}
+
 if (isset($_POST['quitt_conv']))
 {
 	if(isset($_POST['n_id_conv']))
@@ -382,6 +405,51 @@ else
 }
 $conversation = ob_get_clean();
 
+$photo = getPHOTO($bdd, $_SESSION['id']);
+
+ob_start();
+$x = 1;
+if ( $photo === 0 )
+{
+	?>
+	<p id="nophoto">Vous n'avez pas de photo</p>
+	<?php
+}
+else
+{
+	$photo = explode(";", $photo);
+
+	foreach ($photo as $key => $value)
+	{
+		if ( is_file("img/" . $userinfo['id_user'] . "-" . $value) )
+		{
+			?>
+			<div class="colum_photo">
+
+				<div class="container_img">
+					<div class="titre_img">
+						<p><?php echo "image n°" . $x; ?></p>
+					</div>
+
+					<img id="image-<?php echo $x; ?>" class="list_img" onclick="pop_up('image-<?php echo $x; ?>')" src="img/<?php echo $userinfo['id_user']; ?>-<?php echo $value; ?>" alt="sex">
+				</div>
+					
+				<div class="del_img">
+					<form method="POST">
+						<input type="hidden" name="img_del" value="<?php echo $value; ?>">
+						<input class="img_del" onclick="return verifsupp()" type="submit" name="btn_del_img" value="Supprimer">
+					</form>
+				</div>
+
+			</div>
+
+			<?php
+			$x++;
+		}
+	}
+}
+
+$list_photo = ob_get_clean();
 //#################################################################
 //########################## AFFICHAGE ERREUR #####################
 //#################################################################

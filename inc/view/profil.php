@@ -1,21 +1,11 @@
 <div class="link_profil">
 	<ul>
 		<li><button type="button" onclick="profil_html('gestion')">Gestion du compte</button></li>
-		<li><button type="button" onclick="profil_html('message')">Messagerie</button></li>
+		<li><button type="button" onclick="profil_html('message')">Messagerie</button></li>		
+		<li><button type="button" onclick="profil_html('photo')">Mes photos</button></li>
 	</ul>	
 </div>
 
-<div id="info">
-	<h1>Votre profil</h1>
-		<div class="info_profil">
-			<div class="img_sex_profil">
-				<img src="img/<?php echo $type_img; ?>.png" alt="sex">
-			</div>
-			<div class="legend_profil">
-				<?php echo $tableau; ?>
-			</div>
-		</div>
-</div>
 <div id="gestion">
 	<h1>Gestion de votre compte</h1>
 
@@ -54,5 +44,22 @@
 	<div id="list_conv">
 		<?php echo $conversation; ?>
 	</div>
+</div>
+<div id="photo">
+	<h1>Photos de <?php echo $userinfo['pseudo']; ?></h1>
+
+	<?php echo $list_photo; ?>
+
+</div>
+<div id="info">
+	<h1>Votre profil</h1>
+		<div class="info_profil">
+			<div class="img_sex_profil">
+				<img src="img/<?php echo $type_img; ?>.png" alt="sex">
+			</div>
+			<div class="legend_profil">
+				<?php echo $tableau; ?>
+			</div>
+		</div>
 </div>
 

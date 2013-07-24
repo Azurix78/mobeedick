@@ -57,6 +57,7 @@ function profil_html(id)
 	{
 
 		document.getElementById('gestion').style.display = "none";
+		document.getElementById('photo').style.display = "none";
 
 		document.getElementById(id).style.display = "block";
 	}
@@ -64,6 +65,14 @@ function profil_html(id)
 	{
 
 		document.getElementById('message').style.display = "none";
+		document.getElementById('photo').style.display = "none";
+		
+		document.getElementById(id).style.display = "block";
+	}
+	if ( id == "photo" )
+	{
+		document.getElementById('message').style.display = "none";
+		document.getElementById('gestion').style.display = "none";
 		
 		document.getElementById(id).style.display = "block";
 	}
@@ -124,5 +133,33 @@ function switch_conv(id)
 	else
 	{
 		i.style.display = "block";
+	}
+}
+
+function pop_up(id)
+{
+	var x = document.getElementById(id);
+	if ( x.style.position == "" ||  x.style.position == "relative" )
+	{
+		x.style.position = "fixed";
+		x.style.bottom = "5%";
+		x.style.top = "5%";
+		x.style.left = "5%";
+		x.style.right = "5%";
+		x.style.width = "auto";
+		x.style.height = "90%";
+		x.style.zIndex = "5000";
+
+	}
+	else
+	{
+		x.style.position = "relative";
+		x.style.bottom = "";
+		x.style.top = "";
+		x.style.left = "";
+		x.style.right = "";
+		x.style.width = "";
+		x.style.height = "";
+		x.style.zIndex = "0";
 	}
 }

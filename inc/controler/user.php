@@ -92,6 +92,34 @@ if ( isset($_POST['btn_creat_conv']) )
 	}
 }
 
+
+$photo = getPHOTO($bdd, $_GET['id']);
+
+ob_start();
+$x = 1;
+if ( $photo === 0 )
+{
+	?>
+	<p id="nophoto"><?php echo $userinfo['pseudo']; ?> n'a pas de photo</p>
+	<?php
+}
+else
+{
+	$photo = explode(";", $photo);
+
+	foreach ($photo as $key => $value)
+	{
+		if ( is_file("img/" . $userinfo['id_user'] . "-" . $value) )
+		{
+			?>
+			<img id="image-<?php echo $x; ?>" class="list_img" onclick="pop_up('image-<?php echo $x; ?>')" src="img/<?php echo $userinfo['id_user']; ?>-<?php echo $value; ?>" alt="sex">
+			<?php
+			$x++;
+		}
+	}
+}
+
+$list_photo = ob_get_clean();
 //#################################################################
 //########################## AFFICHAGE ERREUR #####################
 //#################################################################

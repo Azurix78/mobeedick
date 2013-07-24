@@ -1,4 +1,7 @@
 <h1>Quel profil cherchez-vous ?</h1>
+<div class="reright">
+	<?php echo $list_recherche; ?>
+</div>
 <div class="link_profil">	
 	<ul>
 		<li><button type="button" onclick="switch_li('rencontre_pseudo')">Recherche par Pseudo</button></li>
@@ -49,7 +52,4 @@
 			</fieldset>
 		</form>
 	</div>
-</div>
-<div class="reright">
-	<?php echo $list_recherche; ?>
 </div>
