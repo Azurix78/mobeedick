@@ -12,9 +12,9 @@ function getallcity($bdd)
 	return $allcity;
 }
 
-function recherche_advance($bdd, $req0, $req1, $req2 ,$id)
+function recherche_advance($bdd, $req0, $req1, $req2, $req3, $req4, $id)
 {
-	$req = mysqli_query($bdd, "SELECT * FROM users $req0 AND ($req1) $req2 AND id_user != $id");
+	$req = mysqli_query($bdd, "SELECT * FROM users $req0 AND ($req1) $req2 $req3 $req4 AND id_user != $id");
 	if ( $req != false )
 	{
 		while ( $donnee = mysqli_fetch_assoc($req))

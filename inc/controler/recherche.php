@@ -96,11 +96,52 @@ if ( isset($_POST['btn_recherche_av']) )
 	{
 		$recherche_sex_sql="AND 1=1 ";
 	}
+
+	if ( isset($_POST['recherche_photo']) AND !empty($_POST['recherche_photo']) AND $_POST['recherche_photo'] != "Choisissez une option" AND $_POST['recherche_photo'] != "Avec et sans photo")
+	{
+		$recherche_photo = xmlentities($_POST['recherche_photo']);
+
+		switch ($recherche_photo) :
+	        case  "Avec photo":
+	        	$recherche_photo_sql=" AND photo != '' ";
+	        	break;
+	        case  "Sans photo":
+	        	$recherche_photo_sql=" AND photo = '' ";
+	        	break;
+    	endswitch;    
+	}
+	else
+	{
+		$recherche_photo_sql="AND 1=1 ";
+	}
+
+	if ( isset($_POST['recherche_depart']) AND !empty($_POST['recherche_depart']) AND $_POST['recherche_depart'] != "Choisissez un d&eacute;partement")
+	{
+		$recherche_depart = xmlentities($_POST['recherche_depart']);
+
+		foreach ($depts as $key => $value)
+		{
+			if ( $recherche_depart == $value )
+			{
+				$recherche_depart_sql=" AND depart = \"$recherche_depart\" ";
+				$departok = 0;
+				break;
+			}
+		}
+		if (!isset($departok))
+		{
+			$recherche_depart_sql="AND 1=1 ";
+		}
+	}
+	else
+	{
+		$recherche_depart_sql="AND 1=1 ";
+	}
 }
 
-if ( isset($recherche_sex_sql) AND isset($recherche_age_sql) AND isset($recherche_ville_sql) )
+if ( isset($recherche_sex_sql) AND isset($recherche_age_sql) AND isset($recherche_ville_sql) AND isset($recherche_depart_sql) AND isset($recherche_photo_sql) )
 {
-	$recherche_tri = recherche_advance($bdd, $recherche_age_sql, $recherche_ville_sql, $recherche_sex_sql, $_SESSION['id']);
+	$recherche_tri = recherche_advance($bdd, $recherche_age_sql, $recherche_ville_sql, $recherche_sex_sql, $recherche_depart_sql, $recherche_photo_sql, $_SESSION['id']);
 }
 elseif ( isset($_POST['btn_recherche_pseudo']) AND isset($_POST['recherche_pseudo']) )
 {
@@ -152,6 +193,14 @@ else
 	$list_recherche = "<p>Faites une recherche et trouvez le profil qu'il vous faut !</p>";
 }
 
+ob_start();
+foreach ($depts as $key => $value)
+{
+	?>
+	<option><?php echo $value; ?></option>
+	<?php
+}
+$listdepart = ob_get_clean();
 
 require_once 'inc/view/recherche.php';
 ?>
