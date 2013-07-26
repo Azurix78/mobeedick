@@ -45,6 +45,17 @@
 										<input type="text" name="email_in" id="email_in" placeholder="Votre Email" required></li>
 									<label for="ville_in">Ville :</label>
 										<input type="text" name="ville_in" id="ville_in" placeholder="Votre ville" required></li>
+									<label for="depart">D&eacute;partement :</label>
+										<select name="depart" id="depart">
+										<?php
+											foreach ($depts as $key => $value)
+											{
+												?>
+												<option><?php echo $value; ?></option>
+												<?php
+											}
+										?>
+										</select>
 								<input class="btn" type="submit" name="ok_in" value="Envoyer">
 							</fieldset>
 						</form>

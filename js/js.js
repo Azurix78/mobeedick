@@ -163,3 +163,17 @@ function pop_up(id)
 		x.style.zIndex = "0";
 	}
 }
+
+function check(obj)
+{
+	obj.src = "./img/checked.png";
+	document.getElementById('checkpseudo').checked = true;
+	obj.onclick = function () { uncheck(this); };
+}
+
+function uncheck(obj)
+{
+	obj.src = "./img/unchecked.png";
+	document.getElementById('checkpseudo').checked = false;
+	obj.onclick = function () { check(this); };
+}

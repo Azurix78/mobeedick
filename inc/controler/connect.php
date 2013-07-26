@@ -15,6 +15,7 @@ if ( isset($_POST['ok_in']))
 		AND isset($_POST['email_in']) 
 		AND isset($_POST['ville_in'])
 		AND isset($_POST['pass'])
+		AND isset($_POST['depart'])
 		AND !empty($_POST['pseudo_in']) 
 		AND !empty($_POST['nom_in']) 
 		AND !empty($_POST['prenom_in']) 
@@ -23,6 +24,7 @@ if ( isset($_POST['ok_in']))
 		AND !empty($_POST['email_in']) 
 		AND !empty($_POST['ville_in'])
 		AND !empty($_POST['pass'])
+		AND !empty($_POST['depart'])
 		)
 	{
 		$pseudo = xmlentities($_POST['pseudo_in']);
@@ -47,6 +49,19 @@ if ( isset($_POST['ok_in']))
 
 
 		$ville = xmlentities($_POST['ville_in']);
+
+		$depart = xmlentities($_POST['depart']);
+		foreach ($depts as $key => $value)
+		{
+			if ( $depart == $value )
+			{
+				$departok = 0;
+			}
+		}
+		if ( !isset($departok) )
+		{
+			$error = "D&eacute;partement invalide.";
+		}
 		$pass = xmlentities($_POST['pass']);
 		if(strlen($pass) < 6)
 		{
@@ -61,7 +76,7 @@ if ( isset($_POST['ok_in']))
 
 		if ( !isset($error) )
 		{
-			inscription($bdd, $pseudo, $prenom, $nom, $date, $sex, $email, $ville, $pass);
+			inscription($bdd, $pseudo, $prenom, $nom, $date, $sex, $email, $ville, $pass, $depart);
 			$success = "Vous &ecirc;tes inscrit ! Pour valider votre compte rendez-vous sur votre bo&icirc;te mail.";
 		}
 	}

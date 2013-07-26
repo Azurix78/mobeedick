@@ -26,6 +26,7 @@ $age = getAge($userinfo['birthdate']);
 $email = $userinfo['email'];
 $sex = $userinfo['sex'];
 $id = $_GET['id'];
+$depart = $userinfo['depart'];
 
 
 if ($sex == "m")
@@ -43,27 +44,31 @@ ob_start();
 <table>
 
 	<tr>
-		<th>Pseudo :</th>
+		<th>Pseudo</th>
 		<td><?php echo xmldecode(xmlentities($pseudo)); ?></td>
 	</tr>
 	<tr>
-		<th>Nom :</th>
+		<th>Nom</th>
 		<td><?php echo xmldecode(xmlentities($nom)); ?></td>
 	</tr>
 	<tr>
-		<th>Pr&eacute;nom :</th>
+		<th>Pr&eacute;nom</th>
 		<td><?php echo xmldecode(xmlentities($prenom)); ?></td>
 	</tr>
 	<tr>
-		<th>Ville :</th>
+		<th>Ville</th>
 		<td><?php echo xmldecode(xmlentities($city)); ?></td>
 	</tr>
 	<tr>
-		<th>Age :</th>
+		<th>D&eacute;par.</th>
+		<td><?php echo xmldecode(xmlentities($depart)); ?></td>
+	</tr>
+	<tr>
+		<th>Age</th>
 		<td><?php echo $age; ?> ans</td>
 	</tr>
 	<tr>
-		<th>Email :</th>
+		<th>Email</th>
 		<td><?php echo xmldecode(xmlentities($email)); ?></td>
 	</tr>
 
@@ -112,7 +117,17 @@ else
 		if ( is_file("img/" . $userinfo['id_user'] . "-" . $value) )
 		{
 			?>
-			<img id="image-<?php echo $x; ?>" class="list_img" onclick="pop_up('image-<?php echo $x; ?>')" src="img/<?php echo $userinfo['id_user']; ?>-<?php echo $value; ?>" alt="sex">
+			<div class="colum_photo">
+
+				<div class="container_img">
+					<div class="titre_img">
+						<p><?php echo "image n°" . $x; ?></p>
+					</div>
+
+					<img id="image-<?php echo $x; ?>" class="list_img" onclick="pop_up('image-<?php echo $x; ?>')" src="img/<?php echo $userinfo['id_user']; ?>-<?php echo $value; ?>" alt="photo">
+				</div>
+
+			</div>
 			<?php
 			$x++;
 		}

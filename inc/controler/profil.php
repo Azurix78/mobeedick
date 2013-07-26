@@ -166,6 +166,37 @@ if ( isset($_POST['btn_pseudo']) )
 	}
 }
 
+if ( isset($_POST['btn_city']) )
+{
+	if ( isset($_POST['new_city']) AND !empty($_POST['new_city']) AND isset($_POST['new_depart']) AND !empty($_POST['new_depart']) AND $_POST['new_depart'] != "Choisissez un d&eacute;parement" )
+	{
+		$new_city = xmlentities($_POST['new_city']);
+		$new_depart = xmlentities($_POST['new_depart']);
+		foreach ($depts as $key => $value)
+		{
+			if ( $new_depart == $value )
+			{
+				$departok = 0;
+			}
+		}
+		if ( !isset($departok) )
+		{
+			$error = "D&eacute;partement invalide.";
+		}
+
+		if ( !isset($error))
+		{
+			changeCITY($bdd, $new_city, $new_depart, $_SESSION['id']);
+			$userinfo = getUserinfos($bdd, $_SESSION['id']);
+			$success = "Votre ville et votre d&eacute;partement ont &eacute;t&eacute; mis &agrave; jour.";
+		}
+	}
+	else
+	{
+		$error = "Veuillez remplir le champ de la section Ville/D&eacute;partement.";
+	}
+}
+
 $pseudo = xmldecode($userinfo['pseudo']);
 $nom = xmldecode($userinfo['nom']);
 $prenom = xmldecode($userinfo['prenom']);
@@ -173,6 +204,7 @@ $city = xmldecode($userinfo['city']);
 $age = getAge($userinfo['birthdate']);
 $email = xmldecode($userinfo['email']);
 $sex = $userinfo['sex'];
+$depart = xmldecode($userinfo['depart']);
 
 
 if ($sex == "m")
@@ -189,30 +221,34 @@ ob_start();
 ?>
 <table>
 
-							<tr>
-								<th>Pseudo :</th>
-								<td><?php echo $pseudo; ?></td>
-							</tr>
-							<tr>
-								<th>Nom :</th>
-								<td><?php echo $nom; ?></td>
-							</tr>
-							<tr>
-								<th>Pr&eacute;nom :</th>
-								<td><?php echo $prenom; ?></td>
-							</tr>
-							<tr>
-								<th>Ville :</th>
-								<td><?php echo $city; ?></td>
-							</tr>
-							<tr>
-								<th>Age :</th>
-								<td><?php echo $age; ?> ans</td>
-							</tr>
-							<tr>
-								<th>Email :</th>
-								<td><?php echo $email; ?></td>
-							</tr>
+	<tr>
+		<th>Pseudo</th>
+		<td><?php echo xmldecode(xmlentities($pseudo)); ?></td>
+	</tr>
+	<tr>
+		<th>Nom</th>
+		<td><?php echo xmldecode(xmlentities($nom)); ?></td>
+	</tr>
+	<tr>
+		<th>Pr&eacute;nom</th>
+		<td><?php echo xmldecode(xmlentities($prenom)); ?></td>
+	</tr>
+	<tr>
+		<th>Ville</th>
+		<td><?php echo xmldecode(xmlentities($city)); ?></td>
+	</tr>
+	<tr>
+		<th>D&eacute;par.</th>
+		<td><?php echo xmldecode(xmlentities($depart)); ?></td>
+	</tr>
+	<tr>
+		<th>Age</th>
+		<td><?php echo $age; ?> ans</td>
+	</tr>
+	<tr>
+		<th>Email</th>
+		<td><?php echo xmldecode(xmlentities($email)); ?></td>
+	</tr>
 
 </table>
 <?php
@@ -431,7 +467,7 @@ else
 						<p><?php echo "image n°" . $x; ?></p>
 					</div>
 
-					<img id="image-<?php echo $x; ?>" class="list_img" onclick="pop_up('image-<?php echo $x; ?>')" src="img/<?php echo $userinfo['id_user']; ?>-<?php echo $value; ?>" alt="sex">
+					<img id="image-<?php echo $x; ?>" class="list_img" onclick="pop_up('image-<?php echo $x; ?>')" src="img/<?php echo $userinfo['id_user']; ?>-<?php echo $value; ?>" alt="photo">
 				</div>
 					
 				<div class="del_img">

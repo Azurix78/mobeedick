@@ -12,7 +12,8 @@
 					<legend>Recherche par Pseudo</legend>
 						<input type="text" placeholder="Entrez un pseudo" name="recherche_pseudo">
 						<div id="checkbox_pseudo">
-							<input type="checkbox" name="exact">Pseudo exact
+							<img class="imgcheck" src="./img/unchecked.png" alt="checkbox" onclick="check(this)">
+							<input style="display:none;" id="checkpseudo" type="checkbox" name="exact">Pseudo exact
 						</div>
 						<input class="sub" type="submit" name="btn_recherche_pseudo" value="Rechercher">
 				</fieldset>

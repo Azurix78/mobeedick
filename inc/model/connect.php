@@ -1,15 +1,15 @@
 <?php
 
 
-function inscription($bdd, $pseudo, $prenom, $nom, $date, $sex, $email, $ville, $pass)
+function inscription($bdd, $pseudo, $prenom, $nom, $date, $sex, $email, $ville, $pass, $depart)
 {
 
 $ville = ucfirst($ville);
 // Génération aléatoire d'une clé
 $cle = md5(microtime(TRUE)*100000);
 
-	$req = mysqli_prepare($bdd, "INSERT INTO users(nom, pseudo, prenom, birthdate, sex, email, city ,mdp, cle) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ");
-	mysqli_stmt_bind_param( $req, "sssssssss", $nom, $pseudo, $prenom, $date, $sex, $email, $ville, $pass, $cle);
+	$req = mysqli_prepare($bdd, "INSERT INTO users(nom, pseudo, prenom, birthdate, sex, email, city ,mdp, cle, depart) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ");
+	mysqli_stmt_bind_param( $req, "ssssssssss", $nom, $pseudo, $prenom, $date, $sex, $email, $ville, $pass, $cle, $depart);
 	mysqli_stmt_execute($req);
 
 	// Préparation du mail contenant le lien d'activation

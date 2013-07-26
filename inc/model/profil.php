@@ -99,4 +99,11 @@ function changePHOTO($bdd, $str, $id)
 {
 	$req = mysqli_query($bdd, "UPDATE users SET photo = \"$str\" WHERE id_user = $id " );
 }
+
+function changeCITY($bdd, $city, $depart, $id)
+{
+	$req = mysqli_prepare($bdd, "UPDATE users SET depart = ?, city = ? WHERE id_user = ? " );
+	mysqli_stmt_bind_param( $req, "ssi", $depart, $city, $id);
+	mysqli_stmt_execute($req);
+}
 ?>

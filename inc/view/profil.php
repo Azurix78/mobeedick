@@ -31,6 +31,24 @@
 		</fieldset>
 		<hr>
 		<fieldset>
+			<legend>Ville / D&eacute;partement</legend>
+		<label for="new_city">Ville :</label><input type="text" id="new_city" name="new_city" placeholder="<?php echo $city; ?>"><br>
+		<label for="new_depart">D&eacute;partement :</label>
+			<select name="new_depart" id="new_depart">
+				<option>Choisissez un d&eacute;partement</option>
+			<?php
+				foreach ($depts as $key => $value)
+				{
+					?>
+					<option><?php echo $value; ?></option>
+					<?php
+				}
+			?>
+			</select>
+		<input type="submit" class="sub" name="btn_city" value="Changer">
+		</fieldset>
+		<hr>
+		<fieldset>
 			<legend>Suppression du compte</legend>
 		<label for="sup">Voulez-vous supprimer votre compte ?</label><br>
 		<input onclick="return verifsupp()" type="submit" class="sub" name="btn_sup" value="OK">
